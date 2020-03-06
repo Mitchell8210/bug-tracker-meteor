@@ -1,0 +1,58 @@
+<template name="task">
+  <div
+    class="taskContainer"
+    id="{{title}}"
+    draggable="true"
+    ondragstart="{{dragstart}}"
+    ondata
+  >
+    <div class="taskTitle">
+      <h4>{{title}}</h4>
+      <p>{{createdAt}}</p>
+    </div>
+    <div class="taskContent">
+      <p>{{content}}</p>
+    </div>
+    <div class="taskStatus">
+      <label>
+        <input
+          type="checkbox"
+          name="backlog"
+          checked="{{backlogCheck}}"
+          class="backlogCheck"
+        />
+        Backlog
+      </label>
+
+      <label for="toDo">
+        <input
+          type="checkbox"
+          name="toDo"
+          checked="{{todoCheck}}"
+          class="todoCheck"
+        />
+        To Do</label
+      >
+
+      <label for="inProgress">
+        <input
+          type="checkbox"
+          name="inProgress"
+          checked="{{inProgressCheck}}"
+          class="inProgressCheck"
+        />
+        In Progress</label
+      >
+      <label for="completed">
+        <input
+          type="checkbox"
+          name="completed"
+          checked="{{completedCheck}}"
+          class="completedCheck"
+        />
+        Completed</label
+      >
+      <button class="deleteButton">Remove</button>
+    </div>
+  </div>
+</template>
