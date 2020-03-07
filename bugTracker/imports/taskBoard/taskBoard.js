@@ -1,6 +1,7 @@
 import { Meteor } from "meteor/meteor";
 import { Template } from "meteor/templating";
 import { Tasks } from "../api/tasks.js";
+import "../projects/project.js"
 import "../taskBoard/taskBoard.html";
 import "../task/task.js";
 import "../noTasks/noTasks.js";
@@ -13,7 +14,7 @@ Template.taskBoard.onCreated(function taskBoardOnCreated() {
 });
 
 Template.taskBoard.helpers({
-  rendered: function() {},
+  rendered: function () { },
   backlogTasks() {
     let tasks = Tasks.find({ status: "Backlog" });
     console.log(tasks);
@@ -48,11 +49,12 @@ Template.taskBoard.helpers({
     } else {
       return false;
     }
-  }
+  },
+
 });
 
 Template.taskBoard.events({
-  "submit .new-task-form": function(event) {
+  "submit .new-task-form": function (event) {
     event.preventDefault();
 
     // Get value from form element

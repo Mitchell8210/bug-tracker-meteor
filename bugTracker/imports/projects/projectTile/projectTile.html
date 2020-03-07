@@ -1,0 +1,12 @@
+<template name="projectTile">
+    <div class="taskContainer" id="{{title}}" draggable="true" ondragstart="{{dragstart}}" ondata>
+        <div class="taskTitle">
+            <h4>{{projectName}}</h4>
+            <p>{{createdAt}}</p>
+            <h3><a href="project/{{_id}}">See Tasks</a></h3>
+        </div>
+        <div class="taskContent">
+            <p>{{content}}</p>
+        </div>
+    </div>
+</template>

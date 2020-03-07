@@ -1,0 +1,36 @@
+<template name="project">
+    <div class="projectContainer">
+        <div class="projectTitle">
+            <h1>My Projects</h1>
+            <h3>{{projectName}}</h3>
+        </div>
+        <form class="new-project-form">
+            <label for="projectName">
+                Project Name
+                <input type="text" name="projectName" />
+            </label>
+            <button class="createProjectButton">Create</button>
+        </form>
+        <form class="new-task-form">
+            <label for="title">
+                Name
+                <input name="title" type="text" />
+            </label>
+            <label for="content">
+                Content
+                <input name="content" type="text" />
+            </label>
+            <label for="parentProject">
+                <select name="parentProject">
+                    {{#each myProjects}}
+                    <option value="{{projectName}}">{{projectName}}</option>
+                    {{/each}}
+                </select>
+            </label>
+            <button id="newTaskButton">OK</button>
+        </form>
+        <div>
+            {{#each myProjects}}{{> projectTile}}{{/each}}
+        </div>
+    </div>
+</template>

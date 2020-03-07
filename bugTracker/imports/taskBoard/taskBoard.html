@@ -2,6 +2,7 @@
   <div class="newTaskContainer">
     <h3>Create a new task!</h3>
     <h3><a href="/">Home</a></h3>
+    <h3><a href="projects">Projects</a></h3>
     <form class="new-task-form">
       <label for="title">
         Name
@@ -42,12 +43,7 @@
         {{/each}}{{else}}{{> noTasks}}{{/if}}
       </div>
     </div>
-    <div
-      class="boardTile"
-      ondrop="{{drop}}"
-      id="completed"
-      ondragover="{{dragover}}"
-    >
+    <div class="boardTile" ondrop="{{drop}}" id="completed" ondragover="{{dragover}}">
       <div class="boardHeader">
         <h3 class="tileTitle">Completed</h3>
       </div>
