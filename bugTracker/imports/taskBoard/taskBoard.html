@@ -1,0 +1,60 @@
+<template name="taskBoard">
+  <div class="newTaskContainer">
+    <h3>Create a new task!</h3>
+    <h3><a href="/">Home</a></h3>
+    <form class="new-task-form">
+      <label for="title">
+        Name
+        <input name="title" type="text" />
+      </label>
+      <label for="content">
+        Content
+        <input name="content" type="text" />
+      </label>
+      <button id="newTaskButton">OK</button>
+    </form>
+  </div>
+  <div class="taskBoard">
+    <div class="boardTile" ondrop="{{drop}}" id="backlog" dropzone="move">
+      <div class="boardHeader">
+        <h3 class="tileTitle">Backlog</h3>
+      </div>
+      <div class="tileContent">
+        {{#if backlogTasks}} {{#each backlogTasks}} {{> task}}
+        {{/each}}{{else}}{{> noTasks}}{{/if}}
+      </div>
+    </div>
+    <div class="boardTile" ondrop="{{drop}}" id="toDo">
+      <div class="boardHeader">
+        <h3 class="tileTitle">To Do</h3>
+      </div>
+      <div class="tileContent">
+        {{#if toDoTasks}} {{#each toDoTasks}} {{> task}} {{/each}}{{else}}{{>
+        noTasks}}{{/if}}
+      </div>
+    </div>
+    <div class="boardTile" ondrop="{{drop}}" id="inProgress">
+      <div class="boardHeader">
+        <h3 class="tileTitle">In Progress</h3>
+      </div>
+      <div class="tileContent">
+        {{#if inProgressTasks}} {{#each inProgressTasks}} {{> task}}
+        {{/each}}{{else}}{{> noTasks}}{{/if}}
+      </div>
+    </div>
+    <div
+      class="boardTile"
+      ondrop="{{drop}}"
+      id="completed"
+      ondragover="{{dragover}}"
+    >
+      <div class="boardHeader">
+        <h3 class="tileTitle">Completed</h3>
+      </div>
+      <div class="tileContent">
+        {{#if completedTasks}} {{#each completedTasks}} {{> task}}
+        {{/each}}{{else}}{{> noTasks}}{{/if}}
+      </div>
+    </div>
+  </div>
+</template>

@@ -1,0 +1,24 @@
+body {
+  padding: 10px;
+  font-family: sans-serif;
+}
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login {
+  margin-left: 10px;
+  font-size: 30px;
+}
+.homePageContainer {
+  background-color: rgb(0, 129, 151);
+  height: 100vh;
+}
+.homePageContainer a {
+  color: black;
+}
+.getStarted {
+  text-align: center;
+}
