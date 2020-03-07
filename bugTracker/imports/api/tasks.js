@@ -19,6 +19,7 @@ Meteor.methods({
       throw new Meteor.Error("not-authorized");
     }
     let date = new Date();
+    console.log("new ticket")
     let day = date.getDay();
     let month = date.getMonth();
     let year = date.getFullYear();
