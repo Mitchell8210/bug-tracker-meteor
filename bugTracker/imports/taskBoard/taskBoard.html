@@ -2,18 +2,7 @@
   <div class="newTaskContainer">
     <h3>Create a new task!</h3>
     <h3><a href="/">Home</a></h3>
-    <h3><a href="projects">Projects</a></h3>
-    <form class="new-task-form">
-      <label for="title">
-        Name
-        <input name="title" type="text" />
-      </label>
-      <label for="content">
-        Content
-        <input name="content" type="text" />
-      </label>
-      <button id="newTaskButton">OK</button>
-    </form>
+    <h3><a href="#" onclick="history.go(-1)">Projects</a></h3>
   </div>
   <div class="taskBoard">
     <div class="boardTile" ondrop="{{drop}}" id="backlog" dropzone="move">

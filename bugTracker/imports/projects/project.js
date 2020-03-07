@@ -11,12 +11,10 @@ Template.project.onCreated(function projectOnCreated() {
     Meteor.subscribe("projects");
     Meteor.subscribe("tasks");
 });
-console.log(Projects.find({}).fetch())
 Template.project.helpers({
     rendered: function () { },
     myProjects() {
         let projects = Projects.find({ owner: Meteor.userId() });
-        console.log(projects.fetch())
         if (Object.keys(projects).length > 0) {
             return projects;
         } else {

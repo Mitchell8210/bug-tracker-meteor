@@ -27,6 +27,7 @@ Meteor.methods({
     Tasks.insert({
       title: ticket.title,
       content: ticket.content,
+      projectScope: ticket.projectScope,
       createdAt: now,
       owner: Meteor.userId(),
       status: "To Do",

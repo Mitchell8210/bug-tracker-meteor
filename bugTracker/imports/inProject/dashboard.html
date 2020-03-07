@@ -1,10 +1,30 @@
 <template name="inProject">
     <div class="dashboardContainer">
         <div class="dashProjectHead">
+            {{#each myProjects}}
             <h3>{{projectName}}</h3>
+            {{/each}}
         </div>
+        <form class="new-task-form">
+            <label for="title">
+                Name
+                <input name="title" type="text" />
+            </label>
+            <label for="content">
+                Content
+                <input name="content" type="text" />
+            </label>
+            <label for="parentProject">
+                <select name="parentProject">
+                    {{#each myProjects}}
+                    <option value="{{projectId}}">{{projectName}}</option>
+                    {{/each}}
+                </select>
+            </label>
+            <button id="newTaskButton">OK</button>
+        </form>
         <div class="dashTaskBoard">
-            {{> taskBoard}}
+            {{> taskBoard  projectId=projectId}}
         </div>
     </div>
 </template>

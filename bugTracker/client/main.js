@@ -7,19 +7,15 @@ if (Meteor.isClient) {
   Router.route("/", function () {
     this.render("home");
   });
-  if (Meteor.userId()) {
-    Router.route("/taskBoard", function () {
-      this.render("taskBoard");
-    });
-    if (Meteor.userId()) {
-      Router.route("/projects", function () {
-        this.render("project")
-      })
-    }
-    if (Meteor.userId) {
-      Router.route("/project/:id", function () {
-        this.render("inProject")
-      })
-    }
-  }
 }
+if (Meteor.userId()) {
+  Router.route("/projects", function () {
+    this.render("project")
+  })
+}
+if (Meteor.userId) {
+  Router.route("/project/:id", function () {
+    this.render("inProject")
+  })
+}
+

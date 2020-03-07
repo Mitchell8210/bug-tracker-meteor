@@ -16,8 +16,8 @@ Template.taskBoard.onCreated(function taskBoardOnCreated() {
 Template.taskBoard.helpers({
   rendered: function () { },
   backlogTasks() {
-    let tasks = Tasks.find({ status: "Backlog" });
-    console.log(tasks);
+    let tasks = Tasks.find({ $and: [{ status: "Backlog" }, { projectScope: this.projectId }] });
+    console.log(tasks.fetch())
     if (Object.keys(tasks).length > 0) {
       return tasks;
     } else {
@@ -25,9 +25,7 @@ Template.taskBoard.helpers({
     }
   },
   toDoTasks() {
-    let tasks = Tasks.find({ status: "To Do" });
-    console.log(tasks);
-    console.log(Object.keys(tasks).length);
+    let tasks = Tasks.find({ $and: [{ status: "To Do" }, { projectScope: this.projectId }] });
     if (Object.keys(tasks).length > 0) {
       return tasks;
     } else {
@@ -35,7 +33,7 @@ Template.taskBoard.helpers({
     }
   },
   inProgressTasks() {
-    let tasks = Tasks.find({ status: "In Progress" });
+    let tasks = Tasks.find({ $and: [{ status: "In Progress" }, { projectScope: this.projectId }] });
     if (Object.keys(tasks).length > 0) {
       return tasks;
     } else {
@@ -43,7 +41,7 @@ Template.taskBoard.helpers({
     }
   },
   completedTasks() {
-    let tasks = Tasks.find({ status: "Completed" });
+    let tasks = Tasks.find({ $and: [{ status: "Completed" }, { projectScope: this.projectId }] });
     if (Object.keys(tasks).length > 0) {
       return tasks;
     } else {
