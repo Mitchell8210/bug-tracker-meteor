@@ -18,11 +18,15 @@ Meteor.methods({
     if (!Meteor.userId()) {
       throw new Meteor.Error("not-authorized");
     }
-
+    let date = new Date();
+    let day = date.getDay();
+    let month = date.getMonth();
+    let year = date.getFullYear();
+    let now = month + "/" + day + "/" + year;
     Tasks.insert({
       title: ticket.title,
       content: ticket.content,
-      createdAt: new Date(),
+      createdAt: now,
       owner: Meteor.userId(),
       status: "To Do",
       username: Meteor.user().username
